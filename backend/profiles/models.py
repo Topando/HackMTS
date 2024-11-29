@@ -14,6 +14,5 @@ class Employee(models.Model):
     address = models.CharField(max_length=50)
     department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True, blank=True)
     role = models.ForeignKey(Role, on_delete=models.CASCADE, null=True, blank=True)
-
     def __str__(self):
         return self.name
