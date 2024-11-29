@@ -7,3 +7,4 @@ class DepartmentsConfig(AppConfig):
 
     def ready(self):
         import departments.signals
+
