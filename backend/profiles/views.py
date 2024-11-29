@@ -9,6 +9,9 @@ from profiles.models import *
 from profiles.serializers import ProfileSerializer
 from django.db.models import Q
 
+from task_manager.models import Task
+from task_manager.serializers import TaskSerializer
+
 
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
@@ -47,4 +50,11 @@ class ProfileViewSet(viewsets.ModelViewSet):
             query &= term_query
         employees = Employee.objects.filter(query)
         serializer = ProfileSerializer(employees, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'], url_path='get-tasks-by-executor-id')
+    def get_tasks_by_executor_id(self, request, pk=None):
+        employee = self.get_object()
+        tasks = Task.objects.filter(executor=employee)
+        serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
