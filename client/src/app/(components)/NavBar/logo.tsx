@@ -1,19 +1,14 @@
-import React from 'react'
-import Image from "next/image"
-import logo from "../../../../public/logo.svg"
-type Props = {}
+import React from 'react';
+import Image from 'next/image';
+
+type Props = {};
 
 const LogoBar = (props: Props) => {
   return (
-    <div className='flex w-30 h-30 float-left pl-7'>
-    <Image
-      priority
-      src={logo}
-      alt="Follow us on Twitter"
-    />
-  </div>
+    <div className="logo-container">
+      <Image priority src="/logo.svg" alt="Logo" width="40" height="40"/>
+    </div>
+  );
+};
 
-  )
-}
-
-export default LogoBar
+export default LogoBar;

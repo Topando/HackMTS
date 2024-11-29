@@ -1,11 +1,20 @@
-import React from 'react'
+import React from 'react';
+import './SideBar.css';
 
-type Props = {}
+type Props = {};
 
 const SideBar = (props: Props) => {
   return (
-    <div>SideBar</div> 
-  )
-}
+    <div className="sidebar-container">
+      <nav className="navbar">
+        <ul className="navbar-links">
+          <li><a href="#home">Сотрудники</a></li>
+          <li><a href="#about">Отделы </a></li>
+          <li><a href="#services">Древо компании</a></li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
 
-export default SideBar
+export default SideBar;
