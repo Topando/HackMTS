@@ -16,6 +16,6 @@ api_vers = "api/v1/"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{api_vers}profiles/', include('profiles.urls')),
-    path(f'{api_vers}depatrment/', include('departments.urls')),
+    path(f'{api_vers}project/', include('departments.urls')),
     path('swagger/', schema_view.as_view()),  # Документация Swagger
 ]
