@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'departments',
-    'profiles'
+    'profiles',
+    'task_manager'
 ]
 
 MIDDLEWARE = [

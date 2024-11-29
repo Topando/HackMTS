@@ -17,5 +17,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{api_vers}profiles/', include('profiles.urls')),
     path(f'{api_vers}project/', include('departments.urls')),
+    path(f'{api_vers}task-manager/', include('task_manager.urls')),
     path('swagger/', schema_view.as_view()),  # Документация Swagger
 ]
