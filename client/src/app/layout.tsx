@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "../app/(components)/NavBar/NavBar.css"
 import DashBoardWrapper from "./dashBoardWrapper";
-import LogoBar from "./(components)/NavBar/logo";
+import StoreProvider from "./StoreProvider"
+import User from "@/app/(components)/Users";
 
 
 
@@ -18,11 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        
-      >
+      <StoreProvider>
+      <body>
         <DashBoardWrapper>{children}</DashBoardWrapper>
+        <User></User>
       </body>
+      </StoreProvider>
     </html>
   );
 }
