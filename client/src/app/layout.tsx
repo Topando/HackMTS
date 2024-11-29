@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "../app/(components)/NavBar/NavBar.css"
+import "../app/(components)/NavBar/index.css"
 import DashBoardWrapper from "./dashBoardWrapper";
 import LogoBar from "./(components)/NavBar/logo";
 
@@ -18,9 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        
-      >
+      <body>
         <DashBoardWrapper>{children}</DashBoardWrapper>
       </body>
     </html>
