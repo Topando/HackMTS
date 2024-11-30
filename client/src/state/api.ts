@@ -1,37 +1,36 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Example async thunk using axios
-export const fetchData = createAsyncThunk('api/fetchData', async () => {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  const response = await axios.get(`${baseUrl}/api/example/`);
-  return response.data;
-});
+export interface User {
+    id: number;
+    name: string;
+    surname: string;
+    email: string;
+    phone: string;
+    address: string;
+    city: string;
+    department: number;
+    description: string;
+    role: string | null;
+    photo: string | null;
+  }
+  
+  interface ApiState {  
+    data: { count: number; next: string | null; previous: string | null; results: User[] } | null;
+    loading: boolean;
+    error: string | null;
+  }
 
 
-const apiSlice = createSlice({
-  name: 'api',
-  initialState: {
-    data: null,
-    loading: false,
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchData.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
-      })
-      .addCase(fetchData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || '';
-      });
-  },
-});
 
-export default apiSlice.reducer;
+  export const apiSlice = createApi({
+    reducerPath: 'api',
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
+    endpoints: (builder) => ({
+      getUsers: builder.query<User[], void>({
+        query: () => '/api/v1/profiles/',
+      }),
+      // Add more endpoints as needed
+    }),
+  });
+  
+  export const { useGetUsersQuery } = apiSlice;

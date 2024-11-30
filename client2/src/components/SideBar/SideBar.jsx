@@ -1,9 +1,8 @@
 import React from 'react';
 import './index.css';
 
-type Props = {};
 
-const SideBar = (props: Props) => {
+const SideBar = () => {
   return (
     <div className="sidebar-container">
       <nav className="navbar">

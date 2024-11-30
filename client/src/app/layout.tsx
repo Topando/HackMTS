@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "../app/(components)/NavBar/NavBar.css"
+import "../app/(components)/NavBar/index.css"
 import DashBoardWrapper from "./dashBoardWrapper";
 import StoreProvider from "./StoreProvider"
-import User from "@/app/(components)/Users";
-
 
 
 export const metadata: Metadata = {
@@ -22,7 +20,6 @@ export default function RootLayout({
       <StoreProvider>
       <body>
         <DashBoardWrapper>{children}</DashBoardWrapper>
-        <User></User>
       </body>
       </StoreProvider>
     </html>

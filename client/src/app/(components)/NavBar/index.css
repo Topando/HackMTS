@@ -1,0 +1,60 @@
+/* Основной контейнер NavBar */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 12px 16px;
+  }
+  
+  /* Левый блок с элементами */
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 32px; /* Расстояние между элементами */
+  }
+  
+  /* Блок поиска */
+  .search-container {
+    position: relative;
+    display: flex;
+    width: 200px;
+  }
+  
+  /* Иконка поиска */
+  .search-icon {
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-right: 8px;
+    height: 20px;
+    width: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  /* Поле ввода поиска */
+  .search-input {
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    background-color: #f3f4f6; /* Серый фон */
+    padding: 8px 8px 8px 32px; /* Отступ для иконки */
+    color: #6b7280; /* Цвет текста placeholder */
+    outline: none;
+  }
+  
+  .search-input::placeholder {
+    color: #6b7280; /* Цвет placeholder */
+  }
+  
+  .search-input:focus {
+    border-color: transparent;
+    outline: none;
+  }
+
+  .logo-container image {
+    width: 40px;
+    height: 40px;
+  }
+  
