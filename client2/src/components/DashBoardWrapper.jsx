@@ -1,15 +1,15 @@
 import React from 'react'
-import NavBar from "@/app/(components)/NavBar"
-import SideBar from "@/app/(components)/SideBar"
+import NavBar from "../components/NavBar/NavBar"
+import SideBar from "../components/SideBar/SideBar"
 
-const DashBoardWrapper = ({children}: {children: React.ReactNode}) => {
+const DashBoardWrapper = ({children}) => {
   return (
     <>
     <div >
         <NavBar/>
         <main >
             <SideBar/>   
-            <div className="main-board">
+            <div>
               {children}
             </div>
         </main>

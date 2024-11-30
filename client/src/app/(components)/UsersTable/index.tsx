@@ -1,5 +1,9 @@
-import React from 'react';
+"use client"; 
+import React, { useEffect } from 'react';
 import './index.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/app/redux';
+import { User } from '@/state/api'
 
 type Props = {};
 
@@ -12,11 +16,6 @@ const UsersTable = (props: Props) => {
             <div className="column-header">Фамилия</div>
             <div className="column-header">Роль</div>
             <div className="column-header">Отдел</div>
-            
-            <div className="cell">Иван</div>
-            <div className="cell">Иванов</div>
-            <div className="cell">Разработчик</div>
-            <div className="cell">Отдел разработки</div>
 
             <div className="cell">Мария</div>
             <div className="cell">Петрова</div>

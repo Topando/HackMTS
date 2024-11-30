@@ -3,8 +3,7 @@ import "./globals.css";
 import "../app/(components)/NavBar/index.css"
 import Head from 'next/head';
 import DashBoardWrapper from "./dashBoardWrapper";
-import LogoBar from "./(components)/NavBar/logo";
-
+import StoreProvider from "./StoreProvider"
 
 
 export const metadata: Metadata = {
@@ -19,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <StoreProvider>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
@@ -27,6 +27,7 @@ export default function RootLayout({
       <body>
         <DashBoardWrapper>{children}</DashBoardWrapper>
       </body>
+      </StoreProvider>
     </html>
   );
 }
