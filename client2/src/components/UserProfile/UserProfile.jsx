@@ -19,12 +19,11 @@ const UserProfile = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    //TODO: ОФОРМИТЬ ПОЛНОСТЬЮ ПРОФИЛЬ
     <div className="container-profile">
       {selectedUser ? (
         <div>
         <div className="profile-photo">
-
+          <img src={selectedUser.photo} alt="photo profile" />
         </div>
         <div>
           <h2>{selectedUser.name} {selectedUser.surname}</h2>
@@ -34,7 +33,7 @@ const UserProfile = () => {
             <div className="cell">Город</div>
             <div className="cell">{selectedUser.city}</div>
             <div className="cell">Отдел</div>
-            <div className="cell">{selectedUser.department}</div>
+            <div className="cell">{selectedUser.department_id_name.name}</div>
             <div className="cell">Роль</div>
             <div className="cell">{selectedUser.role}</div>
             <div className="cell">Начальник</div>
