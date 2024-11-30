@@ -1,0 +1,13 @@
+.modal-inside{
+    display: flex;
+    border-style: solid;
+    border-radius: 1px;
+    border-color: black;
+    justify-content: center;
+    align-items: center;
+}
+.typo{
+    display: flex;
+    border-style: solid;
+    border-color: black;
+}

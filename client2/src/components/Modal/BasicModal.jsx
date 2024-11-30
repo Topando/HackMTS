@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../features/slices/modalSlice'; // Adjust the path as necessary
-
+import { fetchData } from '../../features/slices/dataSlice';
+import { useEffect } from 'react';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -27,6 +28,12 @@ const CustomModal = () => {
     dispatch(closeModal());
   };
 
+  const { items = [], loading, error } = useSelector((state) => state.data || {});
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
+
   return (
     <Modal
       open={open}
@@ -35,12 +42,20 @@ const CustomModal = () => {
       aria-describedby="modal-description"
     >
       <Box sx={style}>
-        <Typography id="modal-title" variant="h6" component="h2">
-          {content?.title || "Default Title"}
-        </Typography>
-        <Typography id="modal-description" sx={{ mt: 2 }}>
-          {content?.description || "Default Description"}
-        </Typography>
+        
+      {items.map((item) => (
+          <>
+          <div className='modal-inside'>
+            <Typography id="modal-title" variant="h6" component="h2" className='typo'>
+              {item.name}
+            </Typography>
+            <Typography id="modal-description" >
+              {item.surname}
+            </Typography>
+            </div>
+          </>
+        ))}
+        
         <Button onClick={handleClose} color="primary">Close</Button>
       </Box>
     </Modal>
