@@ -13,7 +13,7 @@ const NavBar = (props: Props) => {
         <div className="search-container">
           <Search className="search-icon" />
           <input
-            className="search-input"
+            className="search-input color-text-gray"
             type="search"
             placeholder="Search..."
           />

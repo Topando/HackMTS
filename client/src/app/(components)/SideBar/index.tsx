@@ -11,6 +11,8 @@ const SideBar = (props: Props) => {
           <li><a href="#home">Сотрудники</a></li>
           <li><a href="#about">Отделы </a></li>
           <li><a href="#services">Древо компании</a></li>
+          <li><a href="#services">Менеджер задач</a></li>
+          <li><a href="#services">Создать проект</a></li>
         </ul>
       </nav>
     </div>
