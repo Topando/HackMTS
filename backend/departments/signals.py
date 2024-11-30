@@ -1,10 +1,11 @@
 from django.db.models.signals import post_migrate
 from django.dispatch import receiver
-from .models import Department
+from .models import Department, Role
+
 
 @receiver(post_migrate)
 def create_default_departments(sender, **kwargs):
-    if sender.name == 'departments': 
+    if sender.name == 'departments':
         default_departments = [
             {"name": "Отдел разработки", "description": "Отдел, занимающийся разработкой продуктов"},
             {"name": "Отдел маркетинга", "description": "Отдел, занимающийся продвижением продуктов"},
@@ -32,4 +33,31 @@ def create_default_departments(sender, **kwargs):
             Department.objects.get_or_create(
                 name=department['name'],
                 defaults={"description": department['description']}
+            )
+
+
+@receiver(post_migrate)
+def create_default_roles(sender, **kwargs):
+    if sender.name == 'departments':  # Замените 'your_app_name' на имя вашего приложения
+        default_roles = [
+            {"name": "Руководитель", "description": "Главный человек в компании или отделе, управляющий всеми процессами.", "order": 0},
+            {"name": "Менеджер", "description": "Ответственный за управление проектами и командами.", "order": 1},
+            {"name": "Сотрудник", "description": "Работник, выполняющий определенные задачи и обязанности.", "order": 2},
+            {"name": "Разработчик", "description": "Специалист, занимающийся разработкой программного обеспечения.", "order": 3},
+            {"name": "HR", "description": "Специалист по управлению персоналом и подбору сотрудников.", "order": 4},
+            {"name": "Аналитик", "description": "Человек, отвечающий за сбор и анализ данных для улучшения процессов.", "order": 5},
+            {"name": "Маркетолог", "description": "Человек, занимающийся продвижением и маркетингом продуктов и услуг.", "order": 6},
+            {"name": "Финансист", "description": "Человек, отвечающий за финансовую отчетность и управление бюджетами.", "order": 7},
+            {"name": "Операционный менеджер", "description": "Человек, контролирующий операционные процессы внутри компании.", "order": 8},
+            {"name": "Юрист", "description": "Специалист, занимающийся юридическими вопросами компании.", "order": 9},
+            {"name": "Дизайнер", "description": "Человек, создающий визуальный стиль продуктов и рекламы.", "order": 10},
+            {"name": "Тестировщик", "description": "Специалист, занимающийся проверкой качества программных продуктов.", "order": 11},
+            {"name": "Проектный менеджер", "description": "Человек, отвечающий за реализацию проектов в срок и в рамках бюджета.", "order": 12},
+            {"name": "Клиентский менеджер", "description": "Специалист, работающий с клиентами и обеспечивающий их удовлетворенность.", "order": 13},
+        ]
+
+        for role in default_roles:
+            Role.objects.get_or_create(
+                name=role['name'],
+                defaults={"description": role['description'], "order": role['order']}
             )

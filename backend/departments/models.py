@@ -13,6 +13,9 @@ class Department(models.Model):
             descendants.extend(child.get_descendants())  # Рекурсивный вызов для дочерних департаментов
         return descendants
 
+    def __str__(self):
+        return self.name
+
 class Role(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
