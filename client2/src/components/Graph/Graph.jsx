@@ -49,7 +49,7 @@ export default function App() {
         <div>4</div>
       </div>
 
-      <div style={{ width: '100vw', height: '80vh', display: 'flex' }}>
+      <div style={{ width: '100vw', height: '90vh', display: 'flex' }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}

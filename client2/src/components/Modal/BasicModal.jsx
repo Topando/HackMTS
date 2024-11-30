@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../features/slices/modalSlice'; // Adjust the path as necessary
 import { fetchData } from '../../features/slices/dataSlice';
 import { useEffect } from 'react';
+
 const style = {
   position: 'absolute',
   top: '50%',
