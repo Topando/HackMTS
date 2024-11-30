@@ -45,14 +45,14 @@ const CustomModal = () => {
         
       {items.map((item) => (
           <>
-          <div className='modal-inside'>
+          <button className='modal-inside'>
             <Typography id="modal-title" variant="h6" component="h2" className='typo'>
               {item.name}
             </Typography>
             <Typography id="modal-description" >
               {item.surname}
             </Typography>
-            </div>
+           </button>
           </>
         ))}
         
