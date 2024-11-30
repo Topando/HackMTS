@@ -4,6 +4,7 @@ import './index.css';
 
 const SideBar = () => {
   return (
+    //СДЕЛАЙ САЙДБАР НОРМАЛЬНЫЙ ЧТОБЫ БЫЛ ВО ВСЮ ВЫСОТУ
     <div className="sidebar-container">
       <nav className="navbar">
         <ul className="navbar-links">

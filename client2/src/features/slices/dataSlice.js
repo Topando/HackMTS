@@ -29,7 +29,6 @@ export const dataSlice = createSlice({
   },
 });
 
-// Fetch all users
 export const fetchData = () => async (dispatch) => {
   dispatch(dataSlice.actions.fetchDataStart());
   try {

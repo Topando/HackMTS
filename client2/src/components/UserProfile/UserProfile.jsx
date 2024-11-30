@@ -18,7 +18,7 @@ const UserProfile = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    //TODO: СДЕЛАТЬ КРАСИВО
+    //TODO: ОФОРМИТЬ ПОЛНОСТЬЮ ПРОФИЛЬ
     <div>
       {selectedUser ? (
         <div>
