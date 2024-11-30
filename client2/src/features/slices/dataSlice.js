@@ -49,4 +49,9 @@ export const fetchDataOne = (userId) => async (dispatch) => {
   }
 };
 
+
+
+
+
+
 export default dataSlice.reducer;
