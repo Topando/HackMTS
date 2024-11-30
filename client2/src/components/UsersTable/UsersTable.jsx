@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../features/slices/dataSlice'; 
 import { Link } from 'react-router-dom';
 import './index.css';
+
+
 const UsersTable = () => {
   const dispatch = useDispatch();
   

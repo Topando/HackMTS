@@ -9,7 +9,7 @@ const DashBoardWrapper = ({children}) => {
         <NavBar/>
         <main >
             <SideBar/>   
-            <div>
+            <div className="main-board">
               {children}
             </div>
         </main>

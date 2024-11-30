@@ -3,9 +3,8 @@ import { Search } from 'lucide-react';
 import LogoBar from './logo'
 import './index.css';
 
-type Props = {};
 
-const NavBar = (props: Props) => {
+const NavBar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar-left">

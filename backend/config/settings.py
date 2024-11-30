@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'departments',
     'profiles',
     'task_manager',
-    'authentication'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 
