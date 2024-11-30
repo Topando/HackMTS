@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../features/slices/dataSlice'; 
+import { Link } from 'react-router-dom';
 import './index.css';
 const UsersTable = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const UsersTable = () => {
   if (error) return <p>Error: {error}</p>;
   console.log(items)
   return (
+    //TODO: СДЕЛАТЬ КРАСИВО
     <div className="userstable-container">
       <div className="employee-table">
         <div className="header">Сотрудники</div>
@@ -24,7 +26,9 @@ const UsersTable = () => {
         <div className="column-header">Отдел</div>
         {items.map((item) => (
           <>
-            <div key={item.name} className="cell">{item.name}</div> 
+            <div key={item.name} className="cell">
+              <Link to={`/users/${item.id}`}>{item.name}</Link>
+            </div>
             <div key={item.surname} className="cell">{item.surname}</div>
             <div key={item.role} className="cell">{item.role}</div>
             <div key={item.department} className="cell">{item.department}</div>

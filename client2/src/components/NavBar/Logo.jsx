@@ -1,11 +1,11 @@
-import React from 'react';
+    import React from 'react';
+    import Logo from '../../assets/logo.svg?react';
+    const LogoBar = () => {
+    return (
+        <div className="logo-container">
+            <Logo></Logo>
+        </div>
+    );
+    };
 
-
-const LogoBar = () => {
-  return (
-    <div className="logo-container">
-    </div>
-  );
-};
-
-export default LogoBar;
+    export default LogoBar;

@@ -7,9 +7,9 @@ const SideBar = () => {
     <div className="sidebar-container">
       <nav className="navbar">
         <ul className="navbar-links">
-          <li><a href="#home">Сотрудники</a></li>
+          <li><a href="/">Сотрудники</a></li>
           <li><a href="#about">Отделы </a></li>
-          <li><a href="#services">Древо компании</a></li>
+          <li><a href="/graph">Древо компании</a></li>
         </ul>
       </nav>
     </div>

@@ -1,0 +1,14 @@
+.sidebar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    flex-direction: column;
+    padding: 12px 16px;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    overflow: auto; /* Allows scrolling if content exceeds viewport height */
+    position: fixed; /* Fixes the sidebar in place */
+    top: 0; /* Aligns it to the top */
+    left: 0; /* Aligns it to the left */
+    width: 250px; /* Set a width for your sidebar */
+}
