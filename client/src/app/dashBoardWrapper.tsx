@@ -10,7 +10,7 @@ const DashBoardWrapper = ({children}: {children: React.ReactNode}) => {
         <NavBar/>
         <main >
             <SideBar/>   
-            <div>
+            <div className="main-board">
               {children}
             </div>
         </main>
