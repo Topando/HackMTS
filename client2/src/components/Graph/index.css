@@ -3,7 +3,7 @@
     border-color: rgb(204, 188, 188);
     border-style: solid;
     margin-top: 2px;
-    width: 5%;
+    width: 40%;
 }
 .text-updater-node {
     display: flex; 
@@ -18,4 +18,13 @@
     border: 1px solid rgb(204, 188, 188);
     border-radius: 4px; 
     cursor: pointer;    
+}
+.sideUtilBar{
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
