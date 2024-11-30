@@ -35,28 +35,36 @@ const CustomModal = () => {
 
 
   return (
+    //Сделать чтобы список высвечивался в столбик, также заредезайнить кнопки
     <Modal
       open={open}
       onClose={handleClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
     >
+      
       <Box sx={style}>
+      <div className='modal-inside'>
         
-      {items.map((item) => (
-          <>
-          <button className='modal-inside'>
-            <Typography id="modal-title" variant="h6" component="h2" className='typo'>
-              {item.name}
-            </Typography>
-            <Typography id="modal-description" >
-              {item.surname}
-            </Typography>
-           </button>
-          </>
-        ))}
-        
-        <Button onClick={handleClose} color="primary">Close</Button>
+        {items.map((item) => (
+            <>
+            <button >
+              <div className='typo'>
+                <Typography id="modal-title" variant="h6" component="h2" >
+                  {item.name}
+                </Typography>
+              </div>
+              <div className='typo'>
+                <Typography id="modal-description">
+                  {item.surname}
+                </Typography>
+              </div>
+            </button>
+            </>
+          ))}
+          
+          <Button onClick={handleClose} color="primary">Close</Button>
+        </div>
       </Box>
     </Modal>
   );

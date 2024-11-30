@@ -3,11 +3,12 @@
     border-style: solid;
     border-radius: 1px;
     border-color: black;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 .typo{
-    display: flex;
     border-style: solid;
     border-color: black;
+    gap: 20px;
+    padding-right: 20px;
 }
