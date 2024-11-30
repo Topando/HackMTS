@@ -21,14 +21,9 @@ const style = {
   p: 4,
 };
 
-const CustomModal = ({setItem}) => {
+const CustomModal = ({ open, onClose, setItem }) => {
   const dispatch = useDispatch();
-  const { open } = useSelector((state) => state.modal);
-  const { items = []} = useSelector((state) => state.data || {});
-  
-  const handleClose = () => {
-    dispatch(closeModal());
-  };
+  const { items = [] } = useSelector((state) => state.data || {});
 
   useEffect(() => {
     dispatch(fetchData());
@@ -37,7 +32,7 @@ const CustomModal = ({setItem}) => {
   return (
     <Modal
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
     >
@@ -47,13 +42,16 @@ const CustomModal = ({setItem}) => {
             <button
               key={item.id}
               className="modal-item-button"
-              onClick={() => setItem(item)}
+              onClick={() => {
+                setItem(item);
+                onClose();
+              }}
             >
               <Typography variant="h6">{item.name}</Typography>
               <Typography variant="body2">{item.surname}</Typography>
             </button>
-          ))}             
-          <Button onClick={handleClose} color="primary">
+          ))}
+          <Button onClick={onClose} color="primary">
             Close
           </Button>
         </div>
@@ -61,6 +59,5 @@ const CustomModal = ({setItem}) => {
     </Modal>
   );
 };
-
 
 export default CustomModal;

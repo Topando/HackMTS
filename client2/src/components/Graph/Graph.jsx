@@ -8,6 +8,7 @@ import {
 import './index.css';
 import '@xyflow/react/dist/style.css'
 import ButtonNode from './CustomNode';
+import GroupNode from './GroupNode'
 
 
 const initialNodes = [
@@ -17,8 +18,8 @@ const initialNodes = [
       position: { x: 0, y: 0 },
     },
   ];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
-const nodeTypes =  { buttonUpdater: ButtonNode};
+const initialEdges = [{ id: 'e1-2', source: '1', target: '1' }];
+const nodeTypes =  { buttonUpdater: ButtonNode, groupUpdater: GroupNode};
 
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -39,12 +40,22 @@ export default function App() {
     };
     setNodes((nds) => nds.concat(newNode));
   };
+  const addGroupNode = () => {
+    const newNodeId = (nodes.length + 1).toString();
+    const newNode = {
+      id: newNodeId,
+      position: { x: Math.random() * 400, y: Math.random() * 400 }, 
+      data: { label: newNodeId },
+      type: 'groupUpdater'
+    };
+    setNodes((nds) => nds.concat(newNode));
+  };
 
   return (
     <>
       <div className='sideUtilBar'>
         <div className='circle' onClick={addNode}>Create Employee Diagram</div>
-        <div className='circle'>Create Team Diagram</div>
+        <div className='circle' onClick={addGroupNode}>Create Team Diagram</div>
         <div className='circle'>Cursor</div>
         <div>4</div>
       </div>
@@ -57,7 +68,7 @@ export default function App() {
           onEdgesChange={onEdgesChange}
           nodeTypes={nodeTypes}
           onConnect={onConnect}
-          fitview
+          
         />
       </div>
     </>

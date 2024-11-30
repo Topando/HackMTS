@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeGroupsModal } from '../../features/slices/modalForGroups'; // Adjust the path as necessary
 import { getDepartments } from '../../features/slices/departmentsSlice'
 import { useEffect } from 'react';''
 const style = {
@@ -20,48 +19,48 @@ const style = {
   p: 4,
 };
 
-const CustomModal = () => {
+const GroupModal = ({ open, onClose, setItem }) => {
   const dispatch = useDispatch();
-  const { open, content } = useSelector((state) => state.modalGr)
+  const { departments  = [] } = useSelector((state) => state.departments || {});
 
-  const handleClose = () => {
-    dispatch(closeGroupsModal());
-  };
+  useEffect(() => {
+    dispatch(getDepartments());
+  }, [dispatch]);
 
-
+  console.log(departments)
   return (
     <Modal
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
     >
-      
       <Box sx={style}>
-      <div className='modal-inside'>
-        
-        {items.map((item) => (
-            <>
-            <button >
-              <div className='typo'>
-                <Typography id="modal-title" variant="h6" component="h2" >
-                  {item.name}
-                </Typography>
-              </div>
-              <div className='typo'>
-                <Typography id="modal-description">
-                  {item.surname}
-                </Typography>
-              </div>
-            </button>
-            </>
-          ))}
-          
-          <Button onClick={handleClose} color="primary">Close</Button>
+        <div className="modal-inside">
+        {departments.results ? (
+            departments.results.map((item) => (
+              <button
+                key={item.id}
+                className="modal-item-button"
+                onClick={() => {
+                  setItem(item);
+                  onClose();
+                }}
+              >
+                <Typography variant="h6">{item.name}</Typography>
+                <Typography variant="body2">{item.description}</Typography>
+              </button>
+            ))
+          ) : (
+            <Typography variant="body1">Loading...</Typography>
+          )}
+          <Button onClick={onClose} color="primary">
+            Close
+          </Button>
         </div>
       </Box>
     </Modal>
   );
 };
 
-export default CustomModal;
+export default GroupModal;
