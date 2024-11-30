@@ -3,7 +3,7 @@ import './index.css';
 
 type Props = {};
 
-const NavBar = (props: Props) => {
+const UsersTable = (props: Props) => {
   return (
     <div className="userstable-container">
         <div className="employee-table">
@@ -33,4 +33,4 @@ const NavBar = (props: Props) => {
   );
 };
 
-export default NavBar;
+export default UsersTable;
