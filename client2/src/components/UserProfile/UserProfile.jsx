@@ -24,7 +24,7 @@ const UserProfile = () => {
       {selectedUser ? (
         <div>
         <div className="profile-photo">
-
+          <img src={selectedUser.photo} alt="photo profile" />
         </div>
         <div>
           <h2>{selectedUser.name} {selectedUser.surname}</h2>
