@@ -1,21 +1,24 @@
 import { Handle, Position } from '@xyflow/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { openModal } from '../../features/slices/modalSlice';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import CustomModal from '../Modal/BasicModal';
+import GroupModal from '../Modal/GroupsModals';
 import { useState } from 'react';
 const handleStyle = { left: 10 };
  
-function ButtonNode({ isConnectable }) {
-  const dispatch = useDispatch();
+function GroupNode({ isConnectable }) {
+  const [isModalOpen, setModalOpen] = useState(false);
   const [selectedItem, setItem] = useState("");
+  
   const handleOpenModal = () => {
-    dispatch(openModal());
+    setModalOpen(true);
   };
-  const handleSetItem = (item) => {
-    setItem(item);
-  }
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  
   return (
     <div className="text-updater-node">
       <Handle type="target" position={Position.Top} isConnectable={isConnectable} />
@@ -23,7 +26,11 @@ function ButtonNode({ isConnectable }) {
         <Button variant="contained" color="primary" onClick={handleOpenModal}>
           Open Modal
         </Button>
-        <CustomModal setItem={handleSetItem}/>
+        <GroupModal
+          open={isModalOpen} 
+          onClose={handleCloseModal} 
+          setItem={setItem} 
+        />
         {selectedItem && (
           <div className="selected-item">
             <Typography variant="h6">{`${selectedItem.name}`}</Typography>
@@ -37,5 +44,5 @@ function ButtonNode({ isConnectable }) {
     </div>
   );
 }
- 
-export default ButtonNode;
+
+export default GroupNode;

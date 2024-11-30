@@ -5,10 +5,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModal } from '../../features/slices/modalSlice'; // Adjust the path as necessary
-import { fetchData } from '../../features/slices/dataSlice';
-import { useEffect } from 'react';
-
+import { getDepartments } from '../../features/slices/departmentsSlice'
+import { useEffect } from 'react';''
 const style = {
   position: 'absolute',
   top: '50%',
@@ -21,14 +19,15 @@ const style = {
   p: 4,
 };
 
-const CustomModal = ({ open, onClose, setItem }) => {
+const GroupModal = ({ open, onClose, setItem }) => {
   const dispatch = useDispatch();
-  const { items = [] } = useSelector((state) => state.data || {});
+  const { departments  = [] } = useSelector((state) => state.departments || {});
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(getDepartments());
   }, [dispatch]);
 
+  console.log(departments)
   return (
     <Modal
       open={open}
@@ -38,19 +37,23 @@ const CustomModal = ({ open, onClose, setItem }) => {
     >
       <Box sx={style}>
         <div className="modal-inside">
-          {items.map((item) => (
-            <button
-              key={item.id}
-              className="modal-item-button"
-              onClick={() => {
-                setItem(item);
-                onClose();
-              }}
-            >
-              <Typography variant="h6">{item.name}</Typography>
-              <Typography variant="body2">{item.surname}</Typography>
-            </button>
-          ))}
+        {departments.results ? (
+            departments.results.map((item) => (
+              <button
+                key={item.id}
+                className="modal-item-button"
+                onClick={() => {
+                  setItem(item);
+                  onClose();
+                }}
+              >
+                <Typography variant="h6">{item.name}</Typography>
+                <Typography variant="body2">{item.description}</Typography>
+              </button>
+            ))
+          ) : (
+            <Typography variant="body1">Loading...</Typography>
+          )}
           <Button onClick={onClose} color="primary">
             Close
           </Button>
@@ -60,4 +63,4 @@ const CustomModal = ({ open, onClose, setItem }) => {
   );
 };
 
-export default CustomModal;
+export default GroupModal;
