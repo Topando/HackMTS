@@ -8,4 +8,6 @@ router.register(r'department', DepartmentViewSet, basename='departments')
 router.register(r'role', RoleViewSet, basename='roles')
 urlpatterns = router.urls
 
+
+
 print(router.urls)
