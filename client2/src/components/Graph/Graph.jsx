@@ -8,7 +8,6 @@ import {
 import './index.css';
 import '@xyflow/react/dist/style.css'
 import ButtonNode from './CustomNode';
-import { node } from 'globals';
 
 
 const initialNodes = [
