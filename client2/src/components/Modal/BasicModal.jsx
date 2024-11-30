@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../features/slices/modalSlice'; // Adjust the path as necessary
 import { fetchData } from '../../features/slices/dataSlice';
 import { useEffect } from 'react';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -20,54 +21,46 @@ const style = {
   p: 4,
 };
 
-const CustomModal = () => {
+const CustomModal = ({setItem}) => {
   const dispatch = useDispatch();
-  const { open, content } = useSelector((state) => state.modal); // Access modal state
-
+  const { open } = useSelector((state) => state.modal);
+  const { items = []} = useSelector((state) => state.data || {});
+  
   const handleClose = () => {
     dispatch(closeModal());
   };
 
-  const { items = [], loading, error } = useSelector((state) => state.data || {});
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
-
   return (
-    //Сделать чтобы список высвечивался в столбик, также заредезайнить кнопки
     <Modal
       open={open}
       onClose={handleClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
     >
-      
       <Box sx={style}>
-      <div className='modal-inside'>
-        
-        {items.map((item) => (
-            <>
-            <button >
-              <div className='typo'>
-                <Typography id="modal-title" variant="h6" component="h2" >
-                  {item.name}
-                </Typography>
-              </div>
-              <div className='typo'>
-                <Typography id="modal-description">
-                  {item.surname}
-                </Typography>
-              </div>
+        <div className="modal-inside">
+          {items.map((item) => (
+            <button
+              key={item.id}
+              className="modal-item-button"
+              onClick={() => setItem(item)}
+            >
+              <Typography variant="h6">{item.name}</Typography>
+              <Typography variant="body2">{item.surname}</Typography>
             </button>
-            </>
-          ))}
-          
-          <Button onClick={handleClose} color="primary">Close</Button>
+          ))}             
+          <Button onClick={handleClose} color="primary">
+            Close
+          </Button>
         </div>
       </Box>
     </Modal>
   );
 };
+
 
 export default CustomModal;

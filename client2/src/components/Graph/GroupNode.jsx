@@ -16,7 +16,6 @@ function ButtonNode({ isConnectable }) {
   const handleSetItem = (item) => {
     setItem(item);
   }
-  // Сделать верстку для диаграм, возможно добавить фотографии
   return (
     <div className="text-updater-node">
       <Handle type="target" position={Position.Top} isConnectable={isConnectable} />
