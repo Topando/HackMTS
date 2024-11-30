@@ -42,7 +42,7 @@ const UsersTable = () => {
             </div>
             <div className="cell">{item.surname}</div>
             <div className="cell">{item.role}</div>
-            <div className="cell">{item.department}</div>
+            <div className="cell">{item.department_id_name.name}</div>
           </React.Fragment>
         ))}
       </div>
