@@ -4,6 +4,7 @@
     border-radius: 1px;
     border-color: black;
     flex-direction: column;
+    height: 20em;
     gap: 20px;
 }
 .typo{
@@ -85,4 +86,7 @@
 .modal__close:hover{
 	transform: rotate(90deg);
 	transition: all 0.3s ease;
+}
+.fuck{
+    overflow: scroll;
 }

@@ -22,7 +22,7 @@ const initialNodes = [
 const initialEdges = [{ id: '1', source: '1', target: '1' }];
 const nodeTypes =  { buttonUpdater: ButtonNode, groupUpdater: GroupNode};
 
-export default function App() {
+export default function Graph() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   
@@ -43,7 +43,7 @@ export default function App() {
   };
   const addGroupNode = () => {
     const newNodeId = (nodes.length + 1).toString();
-    const newNode = {
+    const newNode =  {
       id: newNodeId,
       position: { x: Math.random() * 400, y: Math.random() * 400 }, 
       data: { label: newNodeId },

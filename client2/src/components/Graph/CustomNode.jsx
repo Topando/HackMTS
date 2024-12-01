@@ -39,13 +39,11 @@ function ButtonNode({ isConnectable}) {
               </div>
             </div>
           </a> :  <Button variant="contained" color="primary" onClick={handleOpenModal}>
-                    Open Modal
+                    Выбрать сотрудника
                   </Button>
           }
         
       </div>
-
-      {/* Handles */}
       <Handle type="target" position={Position.Top} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
       <Handle type="target" position={Position.Left} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
       <Handle type="target" position={Position.Right} isConnectable={isConnectable} className="w-16 !bg-teal-500" />

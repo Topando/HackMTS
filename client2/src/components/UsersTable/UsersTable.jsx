@@ -11,18 +11,16 @@ const UsersTable = () => {
   const [displayedData, setDisplayedData] = useState([]);
 
   useEffect(() => {
-    // Загружаем все данные при монтировании компонента
     dispatch(fetchData());
   }, [dispatch]);
 
   useEffect(() => {
-    // Обновляем отображаемые данные, когда изменяются searchResults или items
     if (searchResults && searchResults.length > 0) {
-      setDisplayedData(searchResults); // Показываем результаты поиска
+      setDisplayedData(searchResults);
     } else {
-      setDisplayedData(items); // Показываем все данные
+      setDisplayedData(items); 
     }
-  }, [items, searchResults]); // Следим за изменением данных
+  }, [items, searchResults]); 
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
