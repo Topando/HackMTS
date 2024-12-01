@@ -1,15 +1,12 @@
+import React, { useState, memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import CustomModal from '../Modal/BasicModal';
-import { useState } from 'react';
-const handleStyle = { left: 10 };
- 
-function ButtonNode({ isConnectable }) {
+
+function ButtonNode({ isConnectable}) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedItem, setItem] = useState("");
-  
+
   const handleOpenModal = () => {
     setModalOpen(true);
   };
@@ -18,31 +15,44 @@ function ButtonNode({ isConnectable }) {
     setModalOpen(false);
   };
 
-  
   return (
-    <div className="text-updater-node">
-      <Handle type="target" position={Position.Top} isConnectable={isConnectable} />
+    <div className="px-4 py-2 shadow-md rounded-md bg-white border-2 border-stone-400">
+      
       <div className="button">
-        <Button variant="contained" color="primary" onClick={handleOpenModal}>
-          Open Modal
-        </Button>
+       
         <CustomModal 
           open={isModalOpen} 
           onClose={handleCloseModal} 
           setItem={setItem} 
         />
-        {selectedItem && (
-          <div className="selected-item">
-            <Typography variant="h6">{`${selectedItem.name}`}</Typography>
-            <Typography variant="body1">{selectedItem.surname}</Typography>
-            <Typography variant="body1">{selectedItem.department}</Typography>
-          </div>
-        )}
+        {selectedItem ? 
+          <a href={`http://localhost:3001/users/${selectedItem?.id}`} target="_blank" rel="noopener noreferrer">
+            
+              <div className="flex">
+              <div className="rounded-full w-12 h-12 flex justify-center items-center bg-gray-100">
+              
+              </div>
+              <div className="ml-2">
+                {`${selectedItem.name}`}
+                <div className="text-lg font-bold">{selectedItem.surname}</div>
+                <div className="text-gray-500">{selectedItem.department_id_name.name}</div>
+              </div>
+            </div>
+          </a> :  <Button variant="contained" color="primary" onClick={handleOpenModal}>
+                    Open Modal
+                  </Button>
+          }
+        
       </div>
-      <Handle type="source" position={Position.Bottom} id="a" style={handleStyle} isConnectable={isConnectable} />
-      <Handle type="source" position={Position.Bottom} id="b" isConnectable={isConnectable} />
+
+      {/* Handles */}
+      <Handle type="target" position={Position.Top} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
+      <Handle type="target" position={Position.Left} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
+      <Handle type="target" position={Position.Right} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
+      <Handle type="source" position={Position.Bottom} id="b" isConnectable={isConnectable} className="w-16 !bg-teal-500" />
+      <Handle type="source" position={Position.Left} id="c" style={{ top: 50 }} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
+      <Handle type="source" position={Position.Right} id="d" style={{ top: 50 }} isConnectable={isConnectable} className="w-16 !bg-teal-500" />
     </div>
   );
 }
-
-export default ButtonNode;
+export default ButtonNode

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .circle{
     border-radius: 1px;
     border-color: rgb(204, 188, 188);
@@ -27,4 +31,73 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
+}
+
+.react-flow__node-selectorNode {
+    font-size: 12px;
+    background: #eee;
+    border: 1px solid #555;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .section__bord{
+	padding: 0 2em;
+}
+
+.bord__block{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+
+.bord__menu_wrap{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+    z-index: 10;
+}
+
+
+.bord__menu:not(:last-child){
+	margin-bottom: 1em;
+}
+
+.bord__menu button{
+	display: flex;
+	justify-content: space-between;
+	gap: 0.4em;
+	align-items: center;
+	font-style: 1.4em;
+	padding: 0.1em 1em;
+	border-radius: 1em;
+	border: 0.2em solid black;
+	width: 10em;
+}
+
+
+.bord__menu button img{
+	width: 1em;
+		transition: all 1s ease;
+
+}
+
+.bord__menu button:hover img{
+	transition: all 1s ease;
+	transform: rotate(180deg);
+}
+
+.bord__drawio{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.bord__depart_block{
+	padding: 0.5em 1em;
+	border: 0.2em solid black;
+	border-radius: 0.5em;
+	font-style: 1.3em;
+	font-weight: 600;
 }

@@ -1,14 +1,12 @@
-// src/components/CustomModal.jsx
 import React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModal } from '../../features/slices/modalSlice'; // Adjust the path as necessary
 import { fetchData } from '../../features/slices/dataSlice';
 import { useEffect } from 'react';
-
+import "./basicModal.css"
+import Logo from '../../assets/close.svg?react';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -35,25 +33,29 @@ const CustomModal = ({ open, onClose, setItem }) => {
       onClose={onClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
+      className='section__modal_window'
     >
-      <Box sx={style}>
-        <div className="modal-inside">
+      <Box sx={style} className="modal_window">
+        <div className="container">
+          <div className="modal__close" onClick={onClose}>
+            <Logo></Logo>
+          </div>
+          <div className="modal__content">
           {items.map((item) => (
             <button
               key={item.id}
-              className="modal-item-button"
+              className="modal__block"
               onClick={() => {
                 setItem(item);
                 onClose();
               }}
+              
             >
               <Typography variant="h6">{item.name}</Typography>
               <Typography variant="body2">{item.surname}</Typography>
             </button>
           ))}
-          <Button onClick={onClose} color="primary">
-            Close
-          </Button>
+          </div>
         </div>
       </Box>
     </Modal>

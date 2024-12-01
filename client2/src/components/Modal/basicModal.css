@@ -12,3 +12,77 @@
     gap: 20px;
     padding-right: 20px;
 }
+
+.section__modal_window{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+
+.modal_window{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	padding: 1.5em 2em;
+	border-radius: 1em;
+}
+
+.modal_window .container{
+	position: relative;
+}
+
+.modal__close{
+	position: absolute;
+	right: -0.9em;
+	top: -1em;
+	width: 1.3em;
+	transition: all 0.3s ease;
+
+}
+
+.modal__block_content{
+	display: flex;
+	gap: 2em;
+	align-items: center;
+	font-size: 1.2em;
+}
+
+
+.modal__block{
+	padding-top: 0.5em;
+	cursor: pointer;
+		transition: all 0.3s ease;
+    display: block;
+}
+
+
+.modal__block:hover{
+	transform: scale(1.05);
+		transition: all 0.3s ease;
+
+}
+
+.modal__block:not(:last-child){
+	border-bottom: 0.1em solid black;
+	padding-bottom: 0.5em;
+}
+
+.modal__block h2{
+	font-size: 1.3em;
+	font-weight: 600;
+	margin-bottom: 0.5em;
+}
+
+
+
+.modal__close:hover{
+	transform: rotate(90deg);
+	transition: all 0.3s ease;
+}

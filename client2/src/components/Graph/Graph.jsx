@@ -9,7 +9,8 @@ import './index.css';
 import '@xyflow/react/dist/style.css'
 import ButtonNode from './CustomNode';
 import GroupNode from './GroupNode'
-
+import Logo from '../../assets/plus.svg?react';
+import "./index.css";
 
 const initialNodes = [
     {
@@ -18,7 +19,7 @@ const initialNodes = [
       position: { x: 0, y: 0 },
     },
   ];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '1' }];
+const initialEdges = [{ id: '1', source: '1', target: '1' }];
 const nodeTypes =  { buttonUpdater: ButtonNode, groupUpdater: GroupNode};
 
 export default function App() {
@@ -53,12 +54,18 @@ export default function App() {
 
   return (
     <>
-      <div className='sideUtilBar'>
-        <div className='circle' onClick={addNode}>Create Employee Diagram</div>
-        <div className='circle' onClick={addGroupNode}>Create Team Diagram</div>
-        <div className='circle'>Cursor</div>
-        <div>4</div>
-      </div>
+      <div className="bord__menu_wrap">
+			  <div className="bord__menu">
+					<button onClick={addNode}>
+						Add employee <Logo></Logo>
+					</button>
+				</div>
+			  <div className="bord__menu">
+					<button onClick={addGroupNode}>
+						Add department <Logo></Logo>
+					</button>
+				</div>
+			</div>
 
       <div style={{ width: '100vw', height: '90vh', display: 'flex' }}>
         <ReactFlow

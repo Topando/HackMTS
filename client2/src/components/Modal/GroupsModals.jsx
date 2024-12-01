@@ -37,23 +37,23 @@ const GroupModal = ({ open, onClose, setItem }) => {
     >
       <Box sx={style}>
         <div className="modal-inside">
-        {departments.results ? (
-            departments.results.map((item) => (
-              <button
-                key={item.id}
-                className="modal-item-button"
-                onClick={() => {
-                  setItem(item);
-                  onClose();
-                }}
-              >
-                <Typography variant="h6">{item.name}</Typography>
-                <Typography variant="body2">{item.description}</Typography>
-              </button>
-            ))
-          ) : (
-            <Typography variant="body1">Loading...</Typography>
-          )}
+          {departments.results ? (
+          departments.results.map((item) => (
+            <button
+              key={item.id}
+              className="modal-item-button"
+              onClick={() => {
+                setItem(item);
+                onClose();
+              }}
+            >
+              <Typography variant="h6">{item.name}</Typography>
+              <Typography variant="body2">{item.description}</Typography>
+            </button>
+          ))
+        ) : (
+          <Typography variant="body1">Loading...</Typography>
+        )}
           <Button onClick={onClose} color="primary">
             Close
           </Button>

@@ -23,8 +23,13 @@ const UserProfile = () => {
       {selectedUser ? (
         <div>
         <div className="profile-photo">
-          <img src={selectedUser.photo} alt="photo profile" />
-        </div>
+        <img
+          width={200}
+          height={200}
+          src={selectedUser.photo}
+          alt="profile"
+        />
+      </div>
         <div>
           <h2>{selectedUser.name} {selectedUser.surname}</h2>
           <p>{selectedUser.role}</p>
